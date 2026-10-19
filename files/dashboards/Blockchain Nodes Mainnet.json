@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 10,
+  "id": 1,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -102,20 +102,18 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "${DS_VICTORIAMETRICS}"
           },
-          "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_block_number_diff{dns_hostname=\"hv_raw_btc_mainnet\"}",
+          "expr": "blockchain_btc_mainnet_block_number_diff{dns_hostname=\"hv_raw_btc_mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
-          "range": true,
           "refId": "A"
         }
       ],
@@ -166,20 +164,18 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "${DS_VICTORIAMETRICS}"
           },
-          "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_local_block_number{dns_hostname=\"hv_raw_btc_mainnet\"}",
+          "expr": "blockchain_btc_mainnet_local_block_number{dns_hostname=\"hv_raw_btc_mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
-          "range": true,
           "refId": "A"
         }
       ],
@@ -230,20 +226,18 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "${DS_VICTORIAMETRICS}"
           },
-          "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_remote_block_number{dns_hostname=\"hv_raw_btc_mainnet\"}",
+          "expr": "blockchain_btc_mainnet_remote_block_number{dns_hostname=\"hv_raw_btc_mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
-          "range": true,
           "refId": "A"
         }
       ],
@@ -252,114 +246,29 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P4169E866C3094E38"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "align": "center",
-            "cellOptions": {
-              "mode": "gradient",
-              "type": "color-background"
-            },
-            "inspect": false
-          },
-          "mappings": [
-            {
-              "options": {
-                "hv-raw-btc-node-mainnet": {
-                  "color": "dark-green",
-                  "index": 0,
-                  "text": "⬅️ Main"
-                },
-                "hv-raw3-btc-node-mainnet": {
-                  "color": "dark-blue",
-                  "index": 1,
-                  "text": "Reserve ➡️"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
+        "type": "datasource",
+        "uid": "grafana"
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
+        "w": 1,
         "x": 9,
         "y": 1
       },
-      "id": 75,
+      "id": 40,
       "options": {
-        "cellHeight": "lg",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
         },
-        "showHeader": false
+        "content": "\n",
+        "mode": "markdown"
       },
-      "pluginVersion": "10.0.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "P4169E866C3094E38"
-          },
-          "editorMode": "builder",
-          "exemplar": false,
-          "expr": "node_uname_info{dns_hostname=\"btc_mainnet_active\"}",
-          "format": "table",
-          "instant": true,
-          "key": "Q-08ffce4d-9816-42c3-b0f6-fd5987163df8-0",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Current node (BTC):",
-      "transformations": [
-        {
-          "id": "labelsToFields",
-          "options": {
-            "keepLabels": [
-              "nodename"
-            ],
-            "mode": "rows"
-          }
-        },
-        {
-          "id": "filterFieldsByName",
-          "options": {
-            "include": {
-              "names": [
-                "value"
-              ]
-            }
-          }
-        }
-      ],
-      "type": "table"
+      "pluginVersion": "9.1.7",
+      "title": "|",
+      "transparent": true,
+      "type": "text"
     },
     {
       "datasource": {
@@ -391,7 +300,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 13,
+        "x": 10,
         "y": 1
       },
       "id": 28,
@@ -409,7 +318,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -418,7 +327,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_block_number_diff{dns_hostname=\"hv_raw3_btc_mainnet\"}",
+          "expr": "blockchain_btc_mainnet_block_number_diff{dns_hostname=\"hv_raw3_btc_mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -455,7 +364,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 16,
+        "x": 13,
         "y": 1
       },
       "id": 16,
@@ -473,7 +382,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -482,7 +391,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_local_block_number{dns_hostname=\"hv_raw3_btc_mainnet\"}",
+          "expr": "blockchain_btc_mainnet_local_block_number{dns_hostname=\"hv_raw3_btc_mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -519,7 +428,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 19,
+        "x": 16,
         "y": 1
       },
       "id": 30,
@@ -537,20 +446,18 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "${DS_VICTORIAMETRICS}"
           },
-          "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_remote_block_number{dns_hostname=\"hv_raw3_btc_mainnet\"}",
+          "expr": "blockchain_btc_mainnet_remote_block_number{dns_hostname=\"hv_raw3_btc_mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
-          "range": true,
           "refId": "A"
         }
       ],
@@ -631,20 +538,18 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "${DS_VICTORIAMETRICS}"
           },
-          "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_block_number_diff{dns_hostname=\"hv_raw_bsc_mainnet\"}",
+          "expr": "blockchain_bsc_mainnet_block_number_diff{dns_hostname=\"hv_raw_bsc_mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
-          "range": true,
           "refId": "A"
         }
       ],
@@ -695,20 +600,18 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "${DS_VICTORIAMETRICS}"
           },
-          "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_local_block_number{dns_hostname=\"hv_raw_bsc_mainnet\"}",
+          "expr": "blockchain_bsc_mainnet_local_block_number{dns_hostname=\"hv_raw_bsc_mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
-          "range": true,
           "refId": "A"
         }
       ],
@@ -759,20 +662,18 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "${DS_VICTORIAMETRICS}"
           },
-          "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_remote_block_number{dns_hostname=\"hv_raw_bsc_mainnet\"}",
+          "expr": "blockchain_bsc_mainnet_remote_block_number{dns_hostname=\"hv_raw_bsc_mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
-          "range": true,
           "refId": "A"
         }
       ],
@@ -781,114 +682,29 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P4169E866C3094E38"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "align": "center",
-            "cellOptions": {
-              "mode": "gradient",
-              "type": "color-background"
-            },
-            "inspect": false
-          },
-          "mappings": [
-            {
-              "options": {
-                "hv-raw-bsc-node-mainnet": {
-                  "color": "dark-green",
-                  "index": 0,
-                  "text": "⬅️ Main"
-                },
-                "hv-raw3-bsc-node-mainnet": {
-                  "color": "dark-blue",
-                  "index": 1,
-                  "text": "Reserve ➡️"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
+        "type": "datasource",
+        "uid": "grafana"
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
+        "w": 1,
         "x": 9,
         "y": 5
       },
-      "id": 74,
+      "id": 26,
       "options": {
-        "cellHeight": "lg",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
         },
-        "showHeader": false
+        "content": "\n",
+        "mode": "markdown"
       },
-      "pluginVersion": "10.0.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "P4169E866C3094E38"
-          },
-          "editorMode": "builder",
-          "exemplar": false,
-          "expr": "node_uname_info{dns_hostname=\"bsc_mainnet_active\"}",
-          "format": "table",
-          "instant": true,
-          "key": "Q-08ffce4d-9816-42c3-b0f6-fd5987163df8-0",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Current node (BSC):",
-      "transformations": [
-        {
-          "id": "labelsToFields",
-          "options": {
-            "keepLabels": [
-              "nodename"
-            ],
-            "mode": "rows"
-          }
-        },
-        {
-          "id": "filterFieldsByName",
-          "options": {
-            "include": {
-              "names": [
-                "value"
-              ]
-            }
-          }
-        }
-      ],
-      "type": "table"
+      "pluginVersion": "9.1.7",
+      "title": "|",
+      "transparent": true,
+      "type": "text"
     },
     {
       "datasource": {
@@ -920,7 +736,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 13,
+        "x": 10,
         "y": 5
       },
       "id": 31,
@@ -938,7 +754,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -947,7 +763,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_block_number_diff{dns_hostname=\"hv-raw3-bsc-mainnet\"}",
+          "expr": "blockchain_bsc_mainnet_block_number_diff{dns_hostname=\"hv-raw3-bsc-mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -984,7 +800,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 16,
+        "x": 13,
         "y": 5
       },
       "id": 33,
@@ -1002,7 +818,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -1011,7 +827,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_local_block_number{dns_hostname=\"hv-raw3-bsc-mainnet\"}",
+          "expr": "blockchain_bsc_mainnet_local_block_number{dns_hostname=\"hv-raw3-bsc-mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -1048,7 +864,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 19,
+        "x": 16,
         "y": 5
       },
       "id": 32,
@@ -1066,7 +882,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -1075,7 +891,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_remote_block_number{dns_hostname=\"hv-raw3-bsc-mainnet\"}",
+          "expr": "blockchain_bsc_mainnet_remote_block_number{dns_hostname=\"hv-raw3-bsc-mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -1147,7 +963,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -1156,7 +972,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_block_number_diff{dns_hostname=\"hv_raw_eth_mainnet\"}",
+          "expr": "blockchain_eth_mainnet_block_number_diff{dns_hostname=\"hv_raw_eth_mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -1196,7 +1012,7 @@
         "x": 3,
         "y": 9
       },
-      "id": 72,
+      "id": 3,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -1211,7 +1027,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -1220,7 +1036,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_local_block_number{dns_hostname=\"hv_raw_eth_mainnet\"}",
+          "expr": "blockchain_eth_mainnet_local_block_number{dns_hostname=\"hv_raw_eth_mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -1260,7 +1076,7 @@
         "x": 6,
         "y": 9
       },
-      "id": 73,
+      "id": 11,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -1275,16 +1091,15 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "${DS_VICTORIAMETRICS}"
           },
-          "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_remote_block_number{dns_hostname=\"hv_raw_eth_mainnet\"}",
+          "expr": "blockchain_eth_mainnet_remote_block_number{dns_hostname=\"hv_raw_eth_mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -1297,114 +1112,29 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P4169E866C3094E38"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "align": "center",
-            "cellOptions": {
-              "mode": "gradient",
-              "type": "color-background"
-            },
-            "inspect": false
-          },
-          "mappings": [
-            {
-              "options": {
-                "hv-raw-eth-node-mainnet": {
-                  "color": "dark-green",
-                  "index": 0,
-                  "text": "⬅️ Main"
-                },
-                "hv-raw3-eth-node-mainnet": {
-                  "color": "dark-blue",
-                  "index": 1,
-                  "text": "Reserve ➡️"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
+        "type": "datasource",
+        "uid": "grafana"
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
+        "w": 1,
         "x": 9,
         "y": 9
       },
-      "id": 76,
+      "id": 25,
       "options": {
-        "cellHeight": "lg",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
         },
-        "showHeader": false
+        "content": "\n",
+        "mode": "markdown"
       },
-      "pluginVersion": "10.0.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "P4169E866C3094E38"
-          },
-          "editorMode": "builder",
-          "exemplar": false,
-          "expr": "node_uname_info{dns_hostname=\"eth_mainnet_active\"}",
-          "format": "table",
-          "instant": true,
-          "key": "Q-08ffce4d-9816-42c3-b0f6-fd5987163df8-0",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Current node (ETH):",
-      "transformations": [
-        {
-          "id": "labelsToFields",
-          "options": {
-            "keepLabels": [
-              "nodename"
-            ],
-            "mode": "rows"
-          }
-        },
-        {
-          "id": "filterFieldsByName",
-          "options": {
-            "include": {
-              "names": [
-                "value"
-              ]
-            }
-          }
-        }
-      ],
-      "type": "table"
+      "pluginVersion": "9.1.7",
+      "title": "|",
+      "transparent": true,
+      "type": "text"
     },
     {
       "datasource": {
@@ -1436,7 +1166,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 13,
+        "x": 10,
         "y": 9
       },
       "id": 34,
@@ -1454,7 +1184,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -1463,7 +1193,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_block_number_diff{dns_hostname=\"hv_raw3_eth_mainnet\"}",
+          "expr": "blockchain_eth_mainnet_block_number_diff{dns_hostname=\"hv_raw3_eth_mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -1500,7 +1230,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 16,
+        "x": 13,
         "y": 9
       },
       "id": 36,
@@ -1518,7 +1248,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -1527,7 +1257,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_local_block_number{dns_hostname=\"hv_raw3_eth_mainnet\"}",
+          "expr": "blockchain_eth_mainnet_local_block_number{dns_hostname=\"hv_raw3_eth_mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -1564,7 +1294,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 19,
+        "x": 16,
         "y": 9
       },
       "id": 35,
@@ -1582,7 +1312,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -1591,7 +1321,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_remote_block_number{dns_hostname=\"hv_raw3_eth_mainnet\"}",
+          "expr": "blockchain_eth_mainnet_remote_block_number{dns_hostname=\"hv_raw3_eth_mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -1663,7 +1393,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -1672,7 +1402,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_block_number_diff{dns_hostname=\"hv_raw_tron\"}",
+          "expr": "blockchain_trx_solidity_mainnet_block_number_diff{dns_hostname=\"hv_raw_tron\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -1727,16 +1457,15 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "${DS_VICTORIAMETRICS}"
           },
-          "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_local_block_number{dns_hostname=\"hv_raw_tron\"}",
+          "expr": "blockchain_trx_solidity_mainnet_local_block_number{dns_hostname=\"hv_raw_tron\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -1791,7 +1520,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -1800,7 +1529,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_remote_block_number{dns_hostname=\"hv_raw_tron\"}",
+          "expr": "blockchain_trx_solidity_mainnet_remote_block_number{dns_hostname=\"hv_raw_tron\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -1813,114 +1542,29 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P4169E866C3094E38"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "align": "center",
-            "cellOptions": {
-              "mode": "gradient",
-              "type": "color-background"
-            },
-            "inspect": false
-          },
-          "mappings": [
-            {
-              "options": {
-                "hv-raw-tron-node": {
-                  "color": "dark-green",
-                  "index": 0,
-                  "text": "⬅️ Main"
-                },
-                "hv-raw3-trx-node-mainnet": {
-                  "color": "dark-blue",
-                  "index": 1,
-                  "text": "Reserve ➡️"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
+        "type": "datasource",
+        "uid": "grafana"
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
+        "w": 1,
         "x": 9,
         "y": 13
       },
-      "id": 77,
+      "id": 24,
       "options": {
-        "cellHeight": "lg",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
         },
-        "showHeader": false
+        "content": "\n",
+        "mode": "markdown"
       },
-      "pluginVersion": "10.0.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "P4169E866C3094E38"
-          },
-          "editorMode": "builder",
-          "exemplar": false,
-          "expr": "node_uname_info{dns_hostname=\"tron_active\"}",
-          "format": "table",
-          "instant": true,
-          "key": "Q-08ffce4d-9816-42c3-b0f6-fd5987163df8-0",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Current node (TRX):",
-      "transformations": [
-        {
-          "id": "labelsToFields",
-          "options": {
-            "keepLabels": [
-              "nodename"
-            ],
-            "mode": "rows"
-          }
-        },
-        {
-          "id": "filterFieldsByName",
-          "options": {
-            "include": {
-              "names": [
-                "value"
-              ]
-            }
-          }
-        }
-      ],
-      "type": "table"
+      "pluginVersion": "9.1.7",
+      "title": "|",
+      "transparent": true,
+      "type": "text"
     },
     {
       "datasource": {
@@ -1952,7 +1596,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 13,
+        "x": 10,
         "y": 13
       },
       "id": 37,
@@ -1970,7 +1614,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -1979,7 +1623,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_block_number_diff{dns_hostname=\"hv-raw3-trx-node-mainnet\"}",
+          "expr": "blockchain_trx_solidity_mainnet_block_number_diff{dns_hostname=\"hv-raw3-trx-node-mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -2016,7 +1660,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 16,
+        "x": 13,
         "y": 13
       },
       "id": 48,
@@ -2034,7 +1678,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -2043,7 +1687,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_local_block_number{dns_hostname=\"hv-raw3-trx-node-mainnet\"}",
+          "expr": "blockchain_trx_solidity_mainnet_local_block_number{dns_hostname=\"hv-raw3-trx-node-mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -2080,7 +1724,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 19,
+        "x": 16,
         "y": 13
       },
       "id": 49,
@@ -2098,7 +1742,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -2107,7 +1751,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "Blockchain_remote_block_number{dns_hostname=\"hv-raw3-trx-node-mainnet\"}",
+          "expr": "blockchain_trx_solidity_mainnet_remote_block_number{dns_hostname=\"hv-raw3-trx-node-mainnet\"}",
           "format": "table",
           "interval": "",
           "legendFormat": "",
@@ -2179,7 +1823,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -2243,7 +1887,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -2307,7 +1951,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -2329,114 +1973,29 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P4169E866C3094E38"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "align": "center",
-            "cellOptions": {
-              "mode": "gradient",
-              "type": "color-background"
-            },
-            "inspect": false
-          },
-          "mappings": [
-            {
-              "options": {
-                "hv-raw2-kusama-validator": {
-                  "color": "dark-green",
-                  "index": 0,
-                  "text": "⬅️ Main"
-                },
-                "hv-raw3-kusama-node": {
-                  "color": "dark-blue",
-                  "index": 1,
-                  "text": "Reserve ➡️"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
+        "type": "datasource",
+        "uid": "grafana"
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
+        "w": 1,
         "x": 9,
         "y": 17
       },
-      "id": 78,
+      "id": 46,
       "options": {
-        "cellHeight": "lg",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
         },
-        "showHeader": false
+        "content": "\n",
+        "mode": "markdown"
       },
-      "pluginVersion": "10.0.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "P4169E866C3094E38"
-          },
-          "editorMode": "builder",
-          "exemplar": false,
-          "expr": "node_uname_info{dns_hostname=\"kusama-active\"}",
-          "format": "table",
-          "instant": true,
-          "key": "Q-08ffce4d-9816-42c3-b0f6-fd5987163df8-0",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Current node (KSM):",
-      "transformations": [
-        {
-          "id": "labelsToFields",
-          "options": {
-            "keepLabels": [
-              "nodename"
-            ],
-            "mode": "rows"
-          }
-        },
-        {
-          "id": "filterFieldsByName",
-          "options": {
-            "include": {
-              "names": [
-                "value"
-              ]
-            }
-          }
-        }
-      ],
-      "type": "table"
+      "pluginVersion": "9.1.7",
+      "title": "|",
+      "transparent": true,
+      "type": "text"
     },
     {
       "datasource": {
@@ -2468,7 +2027,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 13,
+        "x": 10,
         "y": 17
       },
       "id": 47,
@@ -2486,7 +2045,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -2532,7 +2091,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 16,
+        "x": 13,
         "y": 17
       },
       "id": 39,
@@ -2550,7 +2109,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -2595,7 +2154,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 19,
+        "x": 16,
         "y": 17
       },
       "id": 38,
@@ -2613,7 +2172,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -2659,8 +2218,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2692,7 +2250,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.2.1",
       "targets": [
         {
           "datasource": {
@@ -2727,8 +2285,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -2756,7 +2313,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.2.1",
       "targets": [
         {
           "datasource": {
@@ -2791,8 +2348,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -2820,7 +2376,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.2.1",
       "targets": [
         {
           "datasource": {
@@ -2868,8 +2424,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2901,7 +2456,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.2.1",
       "targets": [
         {
           "datasource": {
@@ -2936,8 +2491,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -2965,7 +2519,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.2.1",
       "targets": [
         {
           "datasource": {
@@ -3000,8 +2554,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -3029,7 +2582,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.2.1",
       "targets": [
         {
           "datasource": {
@@ -3077,8 +2630,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3110,7 +2662,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.2.1",
       "targets": [
         {
           "datasource": {
@@ -3145,8 +2697,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -3174,7 +2725,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.2.1",
       "targets": [
         {
           "datasource": {
@@ -3209,8 +2760,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -3238,7 +2788,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.2.1",
       "targets": [
         {
           "datasource": {
@@ -3286,8 +2836,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3319,7 +2868,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.2.1",
       "targets": [
         {
           "datasource": {
@@ -3354,8 +2903,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -3383,7 +2931,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.2.1",
       "targets": [
         {
           "datasource": {
@@ -3418,8 +2966,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -3447,7 +2994,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "9.2.1",
       "targets": [
         {
           "datasource": {
@@ -3469,7 +3016,7 @@
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 38,
+  "schemaVersion": 37,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -3494,13 +3041,13 @@
     ]
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Blockchain Nodes Mainnet",
   "uid": "1cwqc8mVz",
-  "version": 5,
+  "version": 7,
   "weekStart": ""
 }
